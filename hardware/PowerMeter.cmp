@@ -1,0 +1,31 @@
+Cmp-Mod V01 Created by CvPCB (2011-07-12 BZR 3047)-stable date = Tue 06 Sep 2011 13:16:52 BST
+
+BeginCmp
+TimeStamp = /4E651698;
+Reference = BT1;
+ValeurCmp = BATTERY;
+IdModule  = PIN_ARRAY_2X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E650DD8;
+Reference = C1;
+ValeurCmp = 1uF;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E650DDB;
+Reference = C2;
+ValeurCmp = 1uF;
+IdModule  = SM0805;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E660711;
+Reference = U1;
+ValeurCmp = MCP1700;
+IdModule  = SOT89;
+EndCmp
+
+EndListe
