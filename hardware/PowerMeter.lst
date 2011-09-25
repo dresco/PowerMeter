@@ -1,0 +1,63 @@
+eeschema (2011-07-12 BZR 3047)-stable  >> Creation date: Thu 08 Sep 2011 15:31:10 BST
+
+#Cmp ( order = Reference )
+| BT1        BATTERY     
+| C1         1uF         
+| C2         1uF         
+| C3         0.1uF       
+| C4         22pF        
+| C5         0.1uF       
+| C6         22pF        
+| C7         0.1uF       
+| C8         0.1uF       
+| C9         10nF        
+| D1         LED         
+| D2         LED         
+| J1         AVR-ISP-6   
+| JP1        JUMPER      
+| JP2        JUMPER      
+| L1         INDUCTOR    
+| MOD1       XBEE        
+| Q1         OPTO_NPN    
+| R1         10K         
+| R2         470K        
+| R3         670K        
+| R4         680K        
+| R5         10K         
+| R6         10K         
+| U1         MCP1700     
+| U2         ATMEGA88-AU 
+| X1         CRYSTAL     
+#End Cmp
+
+#Cmp ( order = Value )
+| 0.1uF        C3        
+| 0.1uF        C5        
+| 0.1uF        C7        
+| 0.1uF        C8        
+| 10K          R1        
+| 10K          R5        
+| 10K          R6        
+| 10nF         C9        
+| 1uF          C1        
+| 1uF          C2        
+| 22pF         C4        
+| 22pF         C6        
+| 470K         R2        
+| 670K         R3        
+| 680K         R4        
+| ATMEGA88-AU  U2        
+| AVR-ISP-6    J1        
+| BATTERY      BT1       
+| CRYSTAL      X1        
+| INDUCTOR     L1        
+| JUMPER       JP1       
+| JUMPER       JP2       
+| LED          D1        
+| LED          D2        
+| MCP1700      U1        
+| OPTO_NPN     Q1        
+| XBEE         MOD1      
+#End Cmp
+
+#End List
