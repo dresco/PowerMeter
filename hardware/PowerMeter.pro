@@ -1,56 +1,11 @@
-update=Sun 25 Sep 2011 22:57:54 BST
+update=Mon 26 Sep 2011 10:10:59 BST
 version=1
-last_client=eeschema
+last_client=pcbnew
 [general]
 version=1
-[cvpcb]
-version=1
-NetIExt=net
-[cvpcb/libraries]
-EquName1=devcms
-[pcbnew]
-version=1
-PadDrlX=400
-PadDimH=600
-PadDimV=600
-BoardThickness=630
-TxtPcbV=800
-TxtPcbH=600
-TxtModV=600
-TxtModH=600
-TxtModW=120
-VEgarde=100
-DrawLar=150
-EdgeLar=150
-TxtLar=120
-MSegLar=39
-LastNetListRead=PowerMeter.net
-[pcbnew/libraries]
-LibDir=
-LibName1=sockets
-LibName2=connect
-LibName3=discret
-LibName4=pin_array
-LibName5=divers
-LibName6=libcms
-LibName7=display
-LibName8=valves
-LibName9=led
-LibName10=dip_sockets
-LibName11=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/XBee
-LibName12=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/SOT89-JRE
-LibName13=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/SM_XTAL_32x15
-LibName14=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/SMD-0805
-LibName15=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/TQFP32
-LibName16=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/SMD-LED-0805
-LibName17=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/PIN_X1
-LibName18=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/SOD123
-LibName19=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/HOLES
-LibName20=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/BATT
-LibName21=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/PSH02-2WG
 [eeschema]
 version=1
-LibDir=/usr/share/kicad/library
+LibDir=/usr/share/kicad/library;../Library
 NetFmt=1
 HPGLSpd=20
 HPGLDm=15
@@ -80,40 +35,29 @@ RptD_Y=100
 RptLab=1
 LabSize=60
 [eeschema/libraries]
-LibName1=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/opto_npn
-LibName2=power
-LibName3=device
-LibName4=transistors
-LibName5=conn
-LibName6=linear
-LibName7=regul
-LibName8=74xx
-LibName9=cmos4000
-LibName10=adc-dac
-LibName11=memory
-LibName12=xilinx
-LibName13=special
-LibName14=microcontrollers
-LibName15=dsp
-LibName16=microchip
-LibName17=analog_switches
-LibName18=motorola
-LibName19=texas
-LibName20=intel
-LibName21=audio
-LibName22=interface
-LibName23=digital-audio
-LibName24=philips
-LibName25=display
-LibName26=cypress
-LibName27=siliconi
-LibName28=opto
-LibName29=contrib
-LibName30=valves
-LibName31=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/3v
-LibName32=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/mcp170x
-LibName33=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/atmega
-LibName34=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/XBee
-LibName35=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/avr-isp
-LibName36=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/holes
-LibName37=/home/jone/Data/VMware/SharedFolders/Electronics/KiCad Projects/Library/dresco
+LibName1=dresco
+[cvpcb]
+version=1
+NetIExt=net
+[cvpcb/libraries]
+EquName1=devcms
+[pcbnew]
+version=1
+PadDrlX=400
+PadDimH=600
+PadDimV=600
+BoardThickness=630
+TxtPcbV=800
+TxtPcbH=600
+TxtModV=600
+TxtModH=600
+TxtModW=120
+VEgarde=100
+DrawLar=150
+EdgeLar=150
+TxtLar=120
+MSegLar=39
+LastNetListRead=PowerMeter.net
+[pcbnew/libraries]
+LibDir=../Library
+LibName1=dresco

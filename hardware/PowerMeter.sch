@@ -1,40 +1,5 @@
-EESchema Schematic File Version 2  date Sun 25 Sep 2011 18:51:40 BST
-LIBS:opto_npn
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:special
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:contrib
-LIBS:valves
-LIBS:3v
-LIBS:mcp170x
-LIBS:atmega
-LIBS:XBee
-LIBS:avr-isp
-LIBS:holes
+EESchema Schematic File Version 2  date Mon 26 Sep 2011 21:17:16 BST
+LIBS:dresco
 LIBS:PowerMeter-cache
 EELAYER 25  0
 EELAYER END
@@ -42,52 +7,19 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "25 sep 2011"
-Rev "0.2"
+Date "26 sep 2011"
+Rev "0.3"
 Comp ""
 Comment1 ""
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Wire Wire Line
+	8250 5400 8200 5400
 Connection ~ 1850 2000
 Connection ~ 1850 1400
 Connection ~ 3650 1400
-$Comp
-L CONN_1 P2
-U 1 1 4E7BA1E6
-P 1850 2150
-F 0 "P2" H 1930 2150 40  0000 L CNN
-F 1 "CONN_1" H 1850 2205 30  0001 C CNN
-	1    1850 2150
-	0    -1   1    0   
-$EndComp
-$Comp
-L CONN_1 P3
-U 1 1 4E7BA1BE
-P 3650 1250
-F 0 "P3" H 3730 1250 40  0000 L CNN
-F 1 "CONN_1" H 3650 1305 30  0001 C CNN
-	1    3650 1250
-	0    -1   -1   0   
-$EndComp
-$Comp
-L CONN_1 P1
-U 1 1 4E7BA1A9
-P 1850 1250
-F 0 "P1" H 1930 1250 40  0000 L CNN
-F 1 "CONN_1" H 1850 1305 30  0001 C CNN
-	1    1850 1250
-	0    -1   -1   0   
-$EndComp
-Text Notes 9000 700  0    60   ~ 0
-Xbee radio module
-Text Notes 5350 1600 0    60   ~ 0
-In System Programming
-Text Notes 2150 700  0    60   ~ 0
-Power supply
-Text Notes 5500 700  0    60   ~ 0
-Mounting holes
 Wire Notes Line
 	4550 1450 7050 1450
 Wire Wire Line
@@ -111,15 +43,13 @@ Wire Wire Line
 Wire Wire Line
 	7700 3700 7700 4250
 Wire Wire Line
-	8800 5400 8950 5400
+	8850 5400 8950 5400
 Wire Wire Line
 	6800 5200 7000 5200
 Wire Wire Line
 	7000 5200 7000 5050
 Wire Wire Line
-	7000 5050 7100 5050
-Wire Wire Line
-	8950 4200 8950 4100
+	8950 4100 8950 4200
 Wire Wire Line
 	8950 4600 8950 4700
 Wire Wire Line
@@ -149,7 +79,7 @@ Wire Wire Line
 Wire Notes Line
 	4400 2800 4400 500 
 Wire Wire Line
-	7300 4700 6800 4700
+	6800 4700 7300 4700
 Wire Wire Line
 	3450 5950 3450 5800
 Connection ~ 3450 5300
@@ -166,24 +96,24 @@ Wire Wire Line
 Wire Wire Line
 	4450 6050 4450 5700
 Wire Wire Line
-	4600 3900 4150 3900
+	4150 3900 4600 3900
 Wire Wire Line
 	3800 4350 3800 4100
 Connection ~ 3800 4100
 Wire Wire Line
 	4600 4300 3450 4300
 Wire Wire Line
-	4600 3700 4450 3700
+	4450 3700 4600 3700
 Wire Wire Line
 	4600 4100 3450 4100
 Wire Wire Line
 	3450 4100 3450 3550
 Wire Wire Line
-	8300 5400 8400 5400
+	7700 5400 7800 5400
 Wire Wire Line
-	8300 5050 8400 5050
+	7700 5050 7800 5050
 Wire Wire Line
-	7300 5700 6800 5700
+	6800 5700 7300 5700
 Wire Wire Line
 	10350 2150 9950 2150
 Wire Wire Line
@@ -231,11 +161,9 @@ Wire Wire Line
 Wire Wire Line
 	8950 2150 8550 2150
 Wire Wire Line
-	7300 5600 6800 5600
+	6800 5600 7300 5600
 Wire Wire Line
-	7700 5050 7800 5050
-Wire Wire Line
-	7700 5400 7800 5400
+	7000 5050 7200 5050
 Wire Wire Line
 	3950 3700 3450 3700
 Connection ~ 3450 3700
@@ -269,7 +197,7 @@ Wire Wire Line
 Wire Wire Line
 	3450 5800 4050 5800
 Wire Wire Line
-	7300 4600 6800 4600
+	6800 4600 7300 4600
 Wire Notes Line
 	700  2950 10950 2950
 Wire Notes Line
@@ -298,13 +226,13 @@ Wire Wire Line
 Wire Wire Line
 	8700 4800 6800 4800
 Wire Wire Line
-	7100 5400 7000 5400
+	7200 5400 7000 5400
 Wire Wire Line
 	7000 5400 7000 5300
 Wire Wire Line
 	7000 5300 6800 5300
 Wire Wire Line
-	8800 5050 8950 5050
+	8850 5050 8950 5050
 Wire Wire Line
 	8950 5050 8950 5600
 Connection ~ 8950 5400
@@ -315,9 +243,56 @@ Wire Wire Line
 Wire Wire Line
 	6800 4200 6950 4200
 Wire Wire Line
-	2550 1400 2300 1400
+	2300 1400 2550 1400
 Wire Wire Line
-	1900 1400 1200 1400
+	1200 1400 1900 1400
+Wire Wire Line
+	8250 5050 8200 5050
+$Comp
+L AVR-ISP-6 ISP1
+U 1 1 4E805AF3
+P 5850 2200
+F 0 "ISP1" H 6025 1945 50  0000 C CNN
+F 1 "AVR-ISP-6" H 5640 2415 50  0000 L BNN
+F 2 "AVR-ISP-6" V 5350 2200 50  0001 C CNN
+	1    5850 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_1 P2
+U 1 1 4E7BA1E6
+P 1850 2150
+F 0 "P2" H 1930 2150 40  0000 L CNN
+F 1 "CONN_1" H 1850 2205 30  0001 C CNN
+	1    1850 2150
+	0    -1   1    0   
+$EndComp
+$Comp
+L CONN_1 P3
+U 1 1 4E7BA1BE
+P 3650 1250
+F 0 "P3" H 3730 1250 40  0000 L CNN
+F 1 "CONN_1" H 3650 1305 30  0001 C CNN
+	1    3650 1250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L CONN_1 P1
+U 1 1 4E7BA1A9
+P 1850 1250
+F 0 "P1" H 1930 1250 40  0000 L CNN
+F 1 "CONN_1" H 1850 1305 30  0001 C CNN
+	1    1850 1250
+	0    -1   -1   0   
+$EndComp
+Text Notes 9000 700  0    60   ~ 0
+Xbee radio module
+Text Notes 5350 1600 0    60   ~ 0
+In System Programming
+Text Notes 2150 700  0    60   ~ 0
+Power supply
+Text Notes 5500 700  0    60   ~ 0
+Mounting holes
 $Comp
 L HOLE H4
 U 1 1 4E7BA00A
@@ -502,16 +477,6 @@ SCK
 Text GLabel 5400 2100 0    60   Input ~ 0
 MISO
 $Comp
-L AVR-ISP-6 J1
-U 1 1 4E68B4E4
-P 5850 2200
-F 0 "J1" H 6025 1945 50  0000 C CNN
-F 1 "AVR-ISP-6" H 5640 2415 50  0000 L BNN
-F 2 "AVR-ISP-6" V 5350 2200 50  0001 C CNN
-	1    5850 2200
-	1    0    0    -1  
-$EndComp
-$Comp
 L XBEE MOD1
 U 1 1 4E68B498
 P 9450 1750
@@ -657,55 +622,55 @@ $EndComp
 $Comp
 L JUMPER JP2
 U 1 1 4E66949A
-P 7400 5400
-F 0 "JP2" H 7400 5550 60  0000 C CNN
-F 1 "JUMPER" H 7400 5320 40  0000 C CNN
-	1    7400 5400
+P 8550 5400
+F 0 "JP2" H 8550 5550 60  0000 C CNN
+F 1 "JUMPER" H 8550 5320 40  0000 C CNN
+	1    8550 5400
 	1    0    0    -1  
 $EndComp
 $Comp
 L JUMPER JP1
 U 1 1 4E6693F2
-P 7400 5050
-F 0 "JP1" H 7400 5200 60  0000 C CNN
-F 1 "JUMPER" H 7400 4970 40  0000 C CNN
-	1    7400 5050
+P 8550 5050
+F 0 "JP1" H 8550 5200 60  0000 C CNN
+F 1 "JUMPER" H 8550 4970 40  0000 C CNN
+	1    8550 5050
 	1    0    0    -1  
 $EndComp
 $Comp
 L R R5
 U 1 1 4E666BD9
-P 8050 5400
-F 0 "R5" V 8130 5400 50  0000 C CNN
-F 1 "10K" V 8050 5400 50  0000 C CNN
-	1    8050 5400
+P 7450 5400
+F 0 "R5" V 7530 5400 50  0000 C CNN
+F 1 "10K" V 7450 5400 50  0000 C CNN
+	1    7450 5400
 	0    1    1    0   
 $EndComp
 $Comp
 L R R4
 U 1 1 4E666BC0
-P 8050 5050
-F 0 "R4" V 8130 5050 50  0000 C CNN
-F 1 "10K" V 8050 5050 50  0000 C CNN
-	1    8050 5050
+P 7450 5050
+F 0 "R4" V 7530 5050 50  0000 C CNN
+F 1 "10K" V 7450 5050 50  0000 C CNN
+	1    7450 5050
 	0    1    1    0   
 $EndComp
 $Comp
 L LED D3
 U 1 1 4E666B77
-P 8600 5400
-F 0 "D3" H 8600 5500 50  0000 C CNN
-F 1 "LED" H 8600 5300 50  0000 C CNN
-	1    8600 5400
+P 8000 5400
+F 0 "D3" H 8000 5500 50  0000 C CNN
+F 1 "LED" H 8000 5300 50  0000 C CNN
+	1    8000 5400
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED D2
 U 1 1 4E666B71
-P 8600 5050
-F 0 "D2" H 8600 5150 50  0000 C CNN
-F 1 "LED" H 8600 4950 50  0000 C CNN
-	1    8600 5050
+P 8000 5050
+F 0 "D2" H 8000 5150 50  0000 C CNN
+F 1 "LED" H 8000 4950 50  0000 C CNN
+	1    8000 5050
 	1    0    0    -1  
 $EndComp
 $Comp

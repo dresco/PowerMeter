@@ -1,4 +1,4 @@
-EESchema-LIBRARY Version 2.3  Date: Sun 25 Sep 2011 18:51:40 BST
+EESchema-LIBRARY Version 2.3  Date: Mon 26 Sep 2011 21:17:16 BST
 #encoding utf-8
 #
 # +3V
@@ -69,8 +69,8 @@ ENDDEF
 #
 # AVR-ISP-6
 #
-DEF AVR-ISP-6 J 0 40 Y Y 1 F N
-F0 "J" 175 -255 50 H V C CNN
+DEF AVR-ISP-6 ISP 0 40 Y Y 1 F N
+F0 "ISP" 175 -255 50 H V C CNN
 F1 "AVR-ISP-6" -210 215 50 H V L BNN
 F2 "AVR-ISP-6" -500 0 50 V I C CNN
 DRAW
