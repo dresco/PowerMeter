@@ -1,4 +1,4 @@
-# EESchema Netlist Version 1.1 created  Mon 26 Sep 2011 21:17:34 BST
+# EESchema Netlist Version 1.1 created  Sat 01 Oct 2011 18:24:15 BST
 (
  ( /4E805AF3 AVR-ISP-6  ISP1 AVR-ISP-6 {Lib=AVR-ISP-6}
   (    1 MISO )
@@ -187,8 +187,8 @@
   (    2 N-000040 )
  )
  ( /4E665ECE $noname  R1 10K {Lib=R}
-  (    1 RST )
-  (    2 +3V )
+  (    1 +3V )
+  (    2 RST )
  )
  ( /4E660711 $noname  U1 MCP1700 {Lib=MCP1700}
   (  GND GND )
@@ -329,7 +329,7 @@ Net 13 "MISO" "MISO"
  ISP1 1
  U2 16
 Net 14 "RST" "RST"
- R1 1
+ R1 2
  ISP1 5
  U2 29
 Net 15 "" ""
@@ -412,9 +412,9 @@ Net 39 "+3V" "+3V"
  P3 1
  ISP1 2
  C7 1
+ R1 1
  L1 1
  C2 1
- R1 2
  C5 1
  R6 1
  U1 VO
