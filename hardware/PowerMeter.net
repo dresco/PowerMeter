@@ -1,4 +1,4 @@
-# EESchema Netlist Version 1.1 created  Sat 01 Oct 2011 22:34:27 BST
+# EESchema Netlist Version 1.1 created  Sun 02 Oct 2011 14:36:16 BST
 (
  ( /4E805AF3 AVR-ISP-6  ISP1 AVR-ISP-6 {Lib=AVR-ISP-6}
   (    1 MISO )
@@ -45,11 +45,11 @@
   (    1 DOUT )
  )
  ( /4E7A5059 $noname  P8 CONN_5 {Lib=CONN_5}
-  (    1 N-000034 )
-  (    2 N-000033 )
+  (    1 N-000030 )
+  (    2 N-000031 )
   (    3 N-000032 )
-  (    4 N-000031 )
-  (    5 N-000030 )
+  (    4 N-000033 )
+  (    5 N-000034 )
  )
  ( /4E7A4F5F $noname  P10 CONN_1 {Lib=CONN_1}
   (    1 N-000026 )
@@ -356,20 +356,20 @@ Net 17 "GND" "GND"
  P2 1
  ISP1 6
  C3 2
- U2 3
+ C9 1
  C1 2
  C2 2
- U2 5
+ U2 3
  U2 21
- C9 1
+ U2 5
 Net 25 "" ""
- C3 1
  U2 20
+ C3 1
 Net 26 "" ""
  U2 32
- P10 1
- Q1 2
  R6 2
+ Q1 2
+ P10 1
 Net 28 "" ""
  R5 2
  U2 11
@@ -377,36 +377,36 @@ Net 29 "" ""
  R4 2
  U2 10
 Net 30 "" ""
- P8 5
+ P8 1
  U2 28
 Net 31 "" ""
- P8 4
  U2 27
-Net 32 "" ""
- U2 26
- P8 3
-Net 33 "" ""
  P8 2
+Net 32 "" ""
+ P8 3
+ U2 26
+Net 33 "" ""
  U2 25
+ P8 4
 Net 34 "" ""
+ P8 5
  U2 24
- P8 1
 Net 35 "DOUT" "DOUT"
  P6 1
  U2 30
  MOD1 2
 Net 36 "DIN" "DIN"
- U2 31
- MOD1 3
  P7 1
+ MOD1 3
+ U2 31
 Net 37 "RADIO_SLEEP" "RADIO_SLEEP"
- P5 1
  MOD1 9
+ P5 1
  U2 14
 Net 38 "" ""
  U2 18
- L1 2
  C8 1
+ L1 2
 Net 39 "+3V" "+3V"
  MOD1 1
  P3 1

@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sat 01 Oct 2011 22:34:28 BST
+EESchema Schematic File Version 2  date Sun 02 Oct 2011 14:36:11 BST
 LIBS:dresco
 LIBS:PowerMeter-cache
 EELAYER 25  0
@@ -7,7 +7,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "1 oct 2011"
+Date "2 oct 2011"
 Rev "0.3"
 Comp ""
 Comment1 ""
@@ -392,7 +392,7 @@ P 7350 4000
 F 0 "P8" V 7300 4000 50  0000 C CNN
 F 1 "CONN_5" V 7400 4000 50  0000 C CNN
 	1    7350 4000
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L CONN_1 P10
