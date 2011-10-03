@@ -1,4 +1,4 @@
-PCBNEW-BOARD Version 1 date Sun 02 Oct 2011 23:07:46 BST
+PCBNEW-BOARD Version 1 date Mon 03 Oct 2011 20:21:55 BST
 
 # Created by Pcbnew(2011-07-12 BZR 3047)-stable
 
@@ -10,7 +10,7 @@ EnabledLayers 10F08001
 Links 77
 NoConn 0
 Di 49924 28924 75076 51076
-Ndraw 7
+Ndraw 8
 Ntrack 357
 Nzone 0
 BoardThickness 630
@@ -21,7 +21,7 @@ $EndGENERAL
 $SHEETDESCR
 Sheet A4 11700 8267
 Title "PowerMeter"
-Date "2 oct 2011"
+Date "3 oct 2011"
 Rev "0.2"
 Comp ""
 Comment1 ""
@@ -1989,6 +1989,11 @@ Of 0.473000 0.198000 0.000000
 Ro 0.000000 0.000000 90.000000
 $EndSHAPE3D
 $EndMODULE  XBee-Pro
+$TEXTPCB
+Te "test"
+Po 68465 35118 600 800 120 0
+De 21 1 0 Normal C
+$EndTEXTPCB
 $TEXTPCB
 Te "1"
 Po 60197 49134 600 800 120 0

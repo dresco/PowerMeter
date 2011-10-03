@@ -1,4 +1,4 @@
-PCBNEW-BOARD Version 1 date Sun 02 Oct 2011 23:07:56 BST
+PCBNEW-BOARD Version 1 date Mon 03 Oct 2011 23:23:16 BST
 
 # Created by Pcbnew(2011-07-12 BZR 3047)-stable
 
@@ -21,8 +21,8 @@ $EndGENERAL
 $SHEETDESCR
 Sheet A4 11700 8267
 Title "PowerMeter"
-Date "2 oct 2011"
-Rev "0.2"
+Date "3 oct 2011"
+Rev "0.3"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -57,7 +57,7 @@ TextModSize 600 600
 TextModWidth 120
 PadSize 600 600
 PadDrill 400
-Pad2MaskClearance 100
+Pad2MaskClearance 41
 AuxiliaryAxisOrg 62000 39000
 PcbPlotParams (pcbplotparams (layerselection 284196865) (usegerberextensions true) (excludeedgelayer true) (linewidth 60) (plotframeref false) (viasonmask false) (mode 1) (useauxorigin false) (hpglpennumber 1) (hpglpenspeed 20) (hpglpendiameter 15) (hpglpenoverlay 0) (pscolor true) (psnegative false) (psa4output false) (plotreference true) (plotvalue true) (plotothertext true) (plotinvisibletext false) (padsonsilk false) (subtractmaskfromsilk true) (outputformat 1) (mirror false) (drillshape 1) (scaleselection 1) (outputdirectory ""))
 $EndSETUP
