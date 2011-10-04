@@ -1,0 +1,4 @@
+# Exclude temporary & backup files
+$savepcb.*
+*.bak
+*.000
