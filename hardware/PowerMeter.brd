@@ -1,4 +1,4 @@
-PCBNEW-BOARD Version 1 date Wed 05 Oct 2011 08:34:31 BST
+PCBNEW-BOARD Version 1 date Wed 05 Oct 2011 09:01:12 BST
 
 # Created by Pcbnew(2011-07-12 BZR 3047)-stable
 
@@ -9,8 +9,8 @@ Ly 1FFF8001
 EnabledLayers 10F08001
 Links 77
 NoConn 0
-Di 50711 29327 74092 50340
-Ndraw 7
+Di 33165 29910 74092 50340
+Ndraw 8
 Ntrack 355
 Nzone 0
 BoardThickness 630
@@ -57,7 +57,7 @@ TextModSize 600 600
 TextModWidth 120
 PadSize 600 600
 PadDrill 400
-Pad2MaskClearance 100
+Pad2MaskClearance 40
 AuxiliaryAxisOrg 62000 39000
 PcbPlotParams (pcbplotparams (layerselection 284196865) (usegerberextensions true) (excludeedgelayer true) (linewidth 60) (plotframeref false) (viasonmask false) (mode 1) (useauxorigin false) (hpglpennumber 1) (hpglpenspeed 20) (hpglpendiameter 15) (hpglpenoverlay 0) (pscolor true) (psnegative false) (psa4output false) (plotreference true) (plotvalue true) (plotothertext false) (plotinvisibletext false) (padsonsilk false) (subtractmaskfromsilk true) (outputformat 1) (mirror false) (drillshape 1) (scaleselection 1) (outputdirectory ""))
 $EndSETUP
@@ -547,17 +547,17 @@ Po 0 0
 $EndPAD
 $EndMODULE  PIN_X1
 $MODULE HOLE_3.2MM
-Po 51969 31634 0 15 4E7F37FE 4E7F378E ~~
+Po 51969 31634 1800 15 4E7F37FE 4E7F378E ~~
 Li HOLE_3.2MM
 Cd Connecteurs 2 pins
 Kw CONN DEV
 Sc 4E7F378E
 AR /4E7B9FDF
 Op 0 0 0
-T0 0 -1122 300 300 0 60 N V 21 N "H1"
-T1 0 1201 300 300 0 60 N I 21 N "HOLE"
+T0 0 -1122 300 300 1800 60 N V 21 N "H1"
+T1 0 1201 300 300 1800 60 N I 21 N "HOLE"
 $PAD
-Sh "" C 1654 1654 0 0 0
+Sh "" C 1654 1654 0 0 1800
 Dr 1260 0 0
 At STD N 00E0FFFF
 Ne 0 ""
@@ -565,17 +565,17 @@ Po 0 0
 $EndPAD
 $EndMODULE  HOLE_3.2MM
 $MODULE HOLE_3.2MM
-Po 72835 31634 0 15 4E7F37FE 4E7F3790 ~~
+Po 72835 31634 1800 15 4E7F37FE 4E7F3790 ~~
 Li HOLE_3.2MM
 Cd Connecteurs 2 pins
 Kw CONN DEV
 Sc 4E7F3790
 AR /4E7BA006
 Op 0 0 0
-T0 0 -1122 300 300 0 60 N V 21 N "H2"
-T1 0 1201 300 300 0 60 N I 21 N "HOLE"
+T0 0 -1122 300 300 1800 60 N V 21 N "H2"
+T1 0 1201 300 300 1800 60 N I 21 N "HOLE"
 $PAD
-Sh "" C 1654 1654 0 0 0
+Sh "" C 1654 1654 0 0 1800
 Dr 1260 0 0
 At STD N 00E0FFFF
 Ne 0 ""
@@ -619,14 +619,14 @@ Po 0 0
 $EndPAD
 $EndMODULE  HOLE_3.2MM
 $MODULE BATT_HOLDER_3xAA
-Po 52000 46000 1800 0 4E804D79 4E804D99 ~~
+Po 52000 46000 1800 0 4E8C0CAB 4E804D99 ~~
 Li BATT_HOLDER_3xAA
 Cd Connecteurs 2 pins
 Kw CONN DEV
 Sc 4E804D99
 AR /4E651698
 Op 0 0 0
-T0 -10400 -3000 300 300 1800 60 M V 20 N "BT1"
+T0 -47 2378 300 300 1800 60 M V 20 N "BT1"
 T1 -10400 14600 300 300 1800 60 M I 20 N "BATTERY"
 DC -10400 11806 -9809 11806 39 20
 DC -10400 -6 -9809 -6 39 20
@@ -846,14 +846,14 @@ Ro 0.000000 0.000000 0.000000
 $EndSHAPE3D
 $EndMODULE  PIN_ARRAY_3X2
 $MODULE SOT89
-Po 52500 35500 900 15 4E888757 4E88DD99 ~~
+Po 52500 35500 900 15 4E8C0C6D 4E88DD99 ~~
 Li SOT89
 Sc 4E88DD99
 AR /4E660711
 Op 0 0 0
 At SMD 
-T0 0 -1299 276 276 900 49 N V 21 N "U1"
-T1 0 1260 276 276 900 49 N I 21 N "MCP1700"
+T0 -12 1240 276 276 900 49 N V 21 N "U1"
+T1 -12 -1280 276 276 900 49 N I 21 N "MCP1700"
 DS -906 -512 -906 512 150 21
 DS 551 -512 906 -512 150 21
 DS 906 -512 906 512 150 21
@@ -1817,13 +1817,13 @@ Ro 0.000000 0.000000 0.000000
 $EndSHAPE3D
 $EndMODULE  SM_XTAL_3.2x1.5
 $MODULE XBee-Pro
-Po 67500 39000 0 15 4E6E8722 4E8100E1 ~~
+Po 67500 39000 0 15 4E8C0CBB 4E8100E1 ~~
 Li XBee-Pro
 Sc 4E8100E1
 AR /4E68B498
 Op 0 0 0
-T0 0 4331 600 600 0 120 N V 21 N "MOD1"
-T1 0 -9213 600 500 0 120 N V 21 N "XBEE"
+T0 453 -7425 600 600 0 120 N V 21 N "MOD1"
+T1 335 -4906 600 500 0 120 N V 21 N "XBEE"
 DS -4724 -6299 -1575 -8661 150 21
 DS -1575 -8661 2362 -8661 150 21
 DS 2362 -8661 5512 -6299 150 21
@@ -1989,6 +1989,15 @@ Of 0.473000 0.198000 0.000000
 Ro 0.000000 0.000000 90.000000
 $EndSHAPE3D
 $EndMODULE  XBee-Pro
+$TEXTPCB
+Te "Todo:"
+nl "Move XBee module down a fraction"
+nl " (keep it within outline)"
+nl "Re route battery voltage ADC input"
+nl " (after schematic change)"
+Po 41339 37677 600 800 120 0
+De 21 1 0 Normal C
+$EndTEXTPCB
 $TEXTPCB
 Te "1"
 Po 60197 49134 600 800 120 0

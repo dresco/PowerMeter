@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 02 Oct 2011 14:36:11 BST
+EESchema Schematic File Version 2  date Wed 05 Oct 2011 09:01:31 BST
 LIBS:dresco
 LIBS:PowerMeter-cache
 EELAYER 25  0
@@ -7,7 +7,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "2 oct 2011"
+Date "5 oct 2011"
 Rev "0.3"
 Comp ""
 Comment1 ""
@@ -487,7 +487,7 @@ F 2 "XBee" H 9450 1750 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 700  6950 0    120  ~ 0
-To do:\ndone: add probe pins\ndone: add extra pins on unused ports\ndone: add diode on batt+
+To do:\nmove battery voltage ADC input after diode\n (protect MCU against reverse polarity)
 NoConn ~ 6800 5100
 NoConn ~ 6800 5000
 NoConn ~ 6800 4900
