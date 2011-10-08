@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sat 08 Oct 2011 21:36:08 BST
+EESchema Schematic File Version 2  date Sat 08 Oct 2011 21:52:02 BST
 LIBS:dresco
 LIBS:PowerMeter-cache
 EELAYER 25  0
@@ -15,6 +15,8 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Wire Wire Line
+	7700 4750 7700 4900
 Connection ~ 8350 3800
 Wire Wire Line
 	8500 3800 8200 3800
@@ -249,6 +251,17 @@ Wire Wire Line
 	8250 5050 8200 5050
 Wire Wire Line
 	2450 1250 2450 1500
+Wire Wire Line
+	7700 4900 6800 4900
+$Comp
+L CONN_1 P12
+U 1 1 4E90B79C
+P 7700 4600
+F 0 "P12" H 7780 4600 40  0000 L CNN
+F 1 "CONN_1" H 7700 4655 30  0001 C CNN
+	1    7700 4600
+	0    -1   -1   0   
+$EndComp
 $Comp
 L CONN_1 P11
 U 1 1 4E90AD83
@@ -502,7 +515,6 @@ F 2 "XBee" H 9450 1750 50  0000 C CNN
 $EndComp
 NoConn ~ 6800 5100
 NoConn ~ 6800 5000
-NoConn ~ 6800 4900
 NoConn ~ 6800 4400
 NoConn ~ 6800 4300
 $Comp
