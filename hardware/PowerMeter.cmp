@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by CvPCB (2011-07-12 BZR 3047)-stable date = Mon 26 Sep 2011 12:00:31 BST
+Cmp-Mod V01 Created by CvPCB (2011-07-12 BZR 3047)-stable date = Sat 08 Oct 2011 21:09:29 BST
 
 BeginCmp
 TimeStamp = /4E651698;
@@ -220,6 +220,13 @@ EndCmp
 BeginCmp
 TimeStamp = /4E7A4F5F;
 Reference = P10;
+ValeurCmp = CONN_1;
+IdModule  = PIN_X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /4E90AD83;
+Reference = P11;
 ValeurCmp = CONN_1;
 IdModule  = PIN_X1;
 EndCmp
