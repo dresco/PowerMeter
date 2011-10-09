@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 09 Oct 2011 14:18:28 BST
+EESchema Schematic File Version 2  date Sun 09 Oct 2011 15:37:40 BST
 LIBS:dresco
 LIBS:PowerMeter-cache
 EELAYER 25  0
@@ -10,7 +10,7 @@ Title ""
 Date "8 oct 2011"
 Rev "1.0"
 Comp ""
-Comment1 ""
+Comment1 "Released under Creative Commons Attribution-Sharealike (CC BY-SA 3.0) license"
 Comment2 ""
 Comment3 ""
 Comment4 ""
