@@ -1,4 +1,4 @@
-update=Wed 05 Oct 2011 08:41:50 BST
+update=Sun 09 Oct 2011 14:45:30 BST
 version=1
 last_client=pcbnew
 [general]
@@ -61,3 +61,4 @@ LastNetListRead=PowerMeter.net
 [pcbnew/libraries]
 LibDir=../Library
 LibName1=dresco
+LibName2=oshw
