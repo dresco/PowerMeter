@@ -4,7 +4,7 @@ Notes:
 Directory contains symlinks with correct naming convention
 Move/copy board outline to silkscreen layer
 Add order number to silkscreen layer
-Zip up as ordernumber_size.zip (i.e. D12345_5x5.ip)
+Zip up as ordernumber_size.zip (i.e. D12345_5x5.zip)
 
 -----------------
 
