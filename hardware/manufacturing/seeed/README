@@ -1,0 +1,108 @@
+
+Notes:
+
+Directory contains symlinks with correct naming convention
+Move/copy board outline to silkscreen layer
+Add order number to silkscreen layer
+Zip up as ordernumber_size.zip (i.e. D12345_5x5.ip)
+
+-----------------
+
+Description
+About Fusion PCB service:
+
+As hobbyists ourselves, we organize local mfg power, panelize designs, reduce the shipping cost, and ensure the quality. It will be a source to sustain our studio along with other services we provide. 
+
+The minimum PCB QTY we accept here is 10 PCs,  price is start from 10 USD / 10 PCs, so it's 1 USD for each PCB.
+
+Note:
+Please include your order number in silkscreen layer for fastest transaction!
+
+Please try make your PCB width larger than 20mm to reduce our manufacturing cost.
+
+Fusion PCB Order Steps：
+
+    * Purchase fusion PCB Service from online store and check out.
+
+    * An order number will be provided in confirmation email from Seeed Studio Depot(order@seeedstudio.com) 
+
+    * To make sure orders processed smooth and accurately, Mark your order number in silkscreen layer, pack gerber files into a zip file named D(your order number)_(Your PCB size) For example: D14756_10X10.rar then send your file to pcb(at)seeedstudio.com
+
+
+If the file and design meets requirements, they will be processed and shipped in 4-6 days (Excluding the Chinese Festival).
+
+
+Gerber file requirement:
+The following layers are needed:
+
+    * Top layer:              pcbname.GTL 
+    * Bottom layer:           pcbname.GBL 
+    * Solder Stop Mask top:   pcbname.GTS 
+    * Solder Stop Mask Bottom pcbname.GBS 
+    * Silk Top:               pcbname.GTO 
+    * Silk Bottom             pcbname.GBO 
+    * NC Drill:               pcbname.TXT 
+
+Note: 
+
+    * Board outline must be included at least in one layer.
+    * The Gerber file must be RS-274x format. 
+
+PCB design tips：
+
+    * SINGLE DESIGN, NO PANELIZING
+    * Your Gerber file must include only one design
+    * Drills line and long slot can't be accepted
+    * Minimum slot 1mm*1mm
+    * DRC compatible as rule file attached
+    * The PCB size is smallest rectangle that can accommodate PCB
+
+Available Quantity Option: 
+
+10 pcs, 50 pcs, 100 pcs
+
+Note: If you want to order more than 10 pcs, please do check the price for different options and find the most economic one. 
+
+Example:
+For PCB size (50mm X 100mm), 2 × 10 pcs option costs less than 1 × 50 pcs option, but 4 × 10 pcs option costs more than 1 × 50 pcs option. 
+
+Fusion PCB capabilities:
+
+    * Multi Layers: 1－2              
+    * PCB Material: FR-4
+    * Available Color :Green, Red+$10, Yellow+10$, Blue+$10, White+$10 (Green is free, other need extra 10$)
+    * Silk Screen: White, Black (For White Solder Mask only)
+
+Available Maximum Size: 
+
+50mm X 50mm, 50mm X 100mm, 50mm X 150mm, 50mm X 200mm, 100mm X 100mm, 100mm X 150mm, 100mm X 200mm, 150mm X 150mm, 150mm X 200mm, 200mm X 200mm
+
+Note: The PCB maximum dimensions for each price bracket are just that, the maximum.  Your PCB design must be smaller than the dimensions of the service you select.
+
+    * Available Board Thickness:  0.8mm, 1.0mm, 1.2mm, 1.6mm, 2.0mm (The costs of 0.8mm, 1.0mm, 1.2mm, and 1.6mm are same)
+    * Thickness Tolerance: (t≥0.8mm) ± 10% 
+    * Thickness Tolerance: (t<0.8mm) ± 10% 
+    * Insulation Layer Thickness: 0.075mm--5.00mm 
+    *
+    * Minimum trace width: 6mil (6/1000 inch);
+    * Minimum trace/vias/pads space : 6mil (6/1000 inch);
+    * Minimum silkscreen width : 4mil (4/1000 inch)
+    * Minimum silkscreen text size : 32mil (32/1000 inch)
+    * Out Layer Copper Thickness: 1oz (35um) 
+    * Inner Layer Copper Thickness: 17um—100um 
+    * Drilling Hole (Mechanical): 0.3mm—6.35mm 
+    * Finish Hole (Mechanical): 0.3mm—6.30mm 
+    * Diameter Tolerance (Mechanical): 0.08mm 
+    * Registration (Mechanical): 0.09mm 
+    * Aspect Ratio 8:1 
+    * Solder Mask Type: Photosensitive ink 
+    * SMT min Solder Mask Width: 0.1mm 
+    * Min Solder Mask Clearance: 0.1mm 
+    * Plug Hole Diameter: 0.25—0.60mm 
+    * Surface Finish: HASL, HASL (Lead Free) +$5, ENIG+$10.
+
+E-TEST: 50% e-test, 100% e-test +$10
+50% e-test (Tested PCB will have a mark on the PCB edge). 
+100% e-test optional for extra 10$
+
+
