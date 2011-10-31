@@ -1,63 +1,97 @@
-eeschema (2011-07-12 BZR 3047)-stable  >> Creation date: Thu 08 Sep 2011 15:31:10 BST
+eeschema (2011-07-12 BZR 3047)-stable  >> Creation date: Mon 31 Oct 2011 18:12:13 GMT
 
 #Cmp ( order = Reference )
-| BT1        BATTERY     
-| C1         1uF         
-| C2         1uF         
-| C3         0.1uF       
-| C4         22pF        
-| C5         0.1uF       
-| C6         22pF        
-| C7         0.1uF       
-| C8         0.1uF       
-| C9         10nF        
-| D1         LED         
-| D2         LED         
-| J1         AVR-ISP-6   
-| JP1        JUMPER      
-| JP2        JUMPER      
-| L1         INDUCTOR    
-| MOD1       XBEE        
-| Q1         OPTO_NPN    
-| R1         10K         
-| R2         470K        
-| R3         670K        
-| R4         680K        
-| R5         10K         
-| R6         10K         
-| U1         MCP1700     
-| U2         ATMEGA88-AU 
-| X1         CRYSTAL     
+| BT1        BATTERY     ; BATT_HOLDER_3xAA
+| C1         1uF         ; SMD0805     
+| C2         1uF         ; SMD0805     
+| C3         0.1uF       ; SMD0805     
+| C4         22pF        ; SMD0805     
+| C5         0.1uF       ; SMD0805     
+| C6         22pF        ; SMD0805     
+| C7         0.1uF       ; SMD0805     
+| C8         0.1uF       ; SMD0805     
+| C9         10nF        ; SMD0805     
+| D1         DIODESCH    ; SOD123      
+| D2         LED         ; SMD-LED-0805
+| D3         LED         ; SMD-LED-0805
+| H1         HOLE        ; HOLE_3.2MM  
+| H2         HOLE        ; HOLE_3.2MM  
+| H3         HOLE        ; HOLE_3.2MM  
+| H4         HOLE        ; HOLE_3.2MM  
+| ISP1       AVR-ISP-6   ; PIN_ARRAY_3X2
+| JP1        JUMPER      ; PIN_ARRAY_2X1
+| JP2        JUMPER      ; PIN_ARRAY_2X1
+| L1         INDUCTOR    ; SMD0805     
+| MOD1       XBEE        ; XBee-Pro    
+| P1         CONN_1      ; PIN_X1      
+| P2         CONN_1      ; PIN_X1      
+| P3         CONN_1      ; PIN_X1      
+| P4         CONN_1      ; PIN_X1      
+| P5         CONN_1      ; PIN_X1      
+| P6         CONN_1      ; PIN_X1      
+| P7         CONN_1      ; PIN_X1      
+| P8         CONN_5      ; PIN_ARRAY_5X1
+| P9         CONN_1      ; PIN_X1      
+| P10        CONN_1      ; PIN_X1      
+| P11        CONN_1      ; PIN_X1      
+| P12        CONN_1      ; PIN_X1      
+| Q1         OPTO_NPN    ; PSH02-2WG   
+| R1         10K         ; SMD0805     
+| R2         470K        ; SMD0805     
+| R3         670K        ; SMD0805     
+| R4         10K         ; SMD0805     
+| R5         10K         ; SMD0805     
+| R6         680K        ; SMD0805     
+| U1         MCP1700     ; SOT89       
+| U2         ATMEGA88-AU ; TQFP-32-80  
+| X1         CRYSTAL     ; SM_XTAL_3.2x1.5
 #End Cmp
 
 #Cmp ( order = Value )
-| 0.1uF        C3        
-| 0.1uF        C5        
-| 0.1uF        C7        
-| 0.1uF        C8        
-| 10K          R1        
-| 10K          R5        
-| 10K          R6        
-| 10nF         C9        
-| 1uF          C1        
-| 1uF          C2        
-| 22pF         C4        
-| 22pF         C6        
-| 470K         R2        
-| 670K         R3        
-| 680K         R4        
-| ATMEGA88-AU  U2        
-| AVR-ISP-6    J1        
-| BATTERY      BT1       
-| CRYSTAL      X1        
-| INDUCTOR     L1        
-| JUMPER       JP1       
-| JUMPER       JP2       
-| LED          D1        
-| LED          D2        
-| MCP1700      U1        
-| OPTO_NPN     Q1        
-| XBEE         MOD1      
+| 0.1uF        C3        ; SMD0805     
+| 0.1uF        C5        ; SMD0805     
+| 0.1uF        C7        ; SMD0805     
+| 0.1uF        C8        ; SMD0805     
+| 10K          R1        ; SMD0805     
+| 10K          R4        ; SMD0805     
+| 10K          R5        ; SMD0805     
+| 10nF         C9        ; SMD0805     
+| 1uF          C1        ; SMD0805     
+| 1uF          C2        ; SMD0805     
+| 22pF         C4        ; SMD0805     
+| 22pF         C6        ; SMD0805     
+| 470K         R2        ; SMD0805     
+| 670K         R3        ; SMD0805     
+| 680K         R6        ; SMD0805     
+| ATMEGA88-AU  U2        ; TQFP-32-80  
+| AVR-ISP-6    ISP1      ; PIN_ARRAY_3X2
+| BATTERY      BT1       ; BATT_HOLDER_3xAA
+| CONN_1       P1        ; PIN_X1      
+| CONN_1       P2        ; PIN_X1      
+| CONN_1       P3        ; PIN_X1      
+| CONN_1       P4        ; PIN_X1      
+| CONN_1       P5        ; PIN_X1      
+| CONN_1       P6        ; PIN_X1      
+| CONN_1       P7        ; PIN_X1      
+| CONN_1       P9        ; PIN_X1      
+| CONN_1       P10       ; PIN_X1      
+| CONN_1       P11       ; PIN_X1      
+| CONN_1       P12       ; PIN_X1      
+| CONN_5       P8        ; PIN_ARRAY_5X1
+| CRYSTAL      X1        ; SM_XTAL_3.2x1.5
+| DIODESCH     D1        ; SOD123      
+| HOLE         H1        ; HOLE_3.2MM  
+| HOLE         H2        ; HOLE_3.2MM  
+| HOLE         H3        ; HOLE_3.2MM  
+| HOLE         H4        ; HOLE_3.2MM  
+| INDUCTOR     L1        ; SMD0805     
+| JUMPER       JP1       ; PIN_ARRAY_2X1
+| JUMPER       JP2       ; PIN_ARRAY_2X1
+| LED          D2        ; SMD-LED-0805
+| LED          D3        ; SMD-LED-0805
+| MCP1700      U1        ; SOT89       
+| OPTO_NPN     Q1        ; PSH02-2WG   
+| XBEE         MOD1      ; XBee-Pro    
 #End Cmp
 
 #End List
