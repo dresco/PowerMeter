@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sun 09 Oct 2011 15:37:40 BST
+EESchema Schematic File Version 2  date Mon 07 Nov 2011 20:05:48 GMT
 LIBS:dresco
 LIBS:PowerMeter-cache
 EELAYER 25  0
@@ -7,7 +7,7 @@ $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "8 oct 2011"
+Date "7 nov 2011"
 Rev "1.0"
 Comp ""
 Comment1 "Released under Creative Commons Attribution-Sharealike (CC BY-SA 3.0) license"
@@ -666,7 +666,7 @@ L R R5
 U 1 1 4E666BD9
 P 7450 5400
 F 0 "R5" V 7530 5400 50  0000 C CNN
-F 1 "10K" V 7450 5400 50  0000 C CNN
+F 1 "1.8K" V 7450 5400 50  0000 C CNN
 	1    7450 5400
 	0    1    1    0   
 $EndComp
@@ -675,7 +675,7 @@ L R R4
 U 1 1 4E666BC0
 P 7450 5050
 F 0 "R4" V 7530 5050 50  0000 C CNN
-F 1 "10K" V 7450 5050 50  0000 C CNN
+F 1 "1.8K" V 7450 5050 50  0000 C CNN
 	1    7450 5050
 	0    1    1    0   
 $EndComp
@@ -722,7 +722,7 @@ L R R3
 U 1 1 4E6665CA
 P 7950 4000
 F 0 "R3" V 8030 4000 50  0000 C CNN
-F 1 "670K" V 7950 4000 50  0000 C CNN
+F 1 "680K" V 7950 4000 50  0000 C CNN
 	1    7950 4000
 	0    1    1    0   
 $EndComp
