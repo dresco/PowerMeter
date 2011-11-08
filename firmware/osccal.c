@@ -6,7 +6,7 @@
 //   DONE - can't assume loopcount, need to track min/max values (and maybe iterations)?
 //
 
-#include "OSCCal.h"
+#include "osccal.h"
 
 extern volatile uint8_t debug_osccal_iterations, debug_prev_osccal_iterations;
 extern volatile uint16_t debug_osccal_tcnt;

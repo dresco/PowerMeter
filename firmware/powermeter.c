@@ -458,5 +458,6 @@ int main (void)
 
         // Sleep until next interrupt
         sleep_mode();
-    }   
+    }
+    return (0);
 }
