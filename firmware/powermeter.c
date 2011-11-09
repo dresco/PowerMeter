@@ -3,15 +3,13 @@
 // 32.768 kHz watch crystal - async timer2 & oscillator calibration
 // timer2 - 5 sec - periodic wakeup (clocked from 32.768 crystal)
 //
-// PORT B0 - output - switch LED (debug only)
-// PORT B2 - output - radio sleep select
-// PORT B3 - input  - radio sleep status
-// PORT B4 - input  - radio CTS status
-// PORT C2 - input  - ADC2 is battery voltage (via voltage divider)
-// PORT D0 - input  - USART RX
-// PORT D1 - output - USART TX
-// PORT D2 - input  - INT0 - phototransitor pulse counter
-// PORT D6 - input  - pulled low for debug output (every timer tick)
+// PORT B1 - input  - radio sleep status (CTS)
+// PORT B2 - output - radio sleep select (DTR)
+// PORT C0 - input  - ADC0 battery voltage (via voltage divider)
+// PORT D0 - input  - USART RXD
+// PORT D1 - output - USART TXD
+// PORT D2 - input  - INT0 - phototransistor pulse counter
+// PORT D6 - output - switch LED (debug only)
 // PORT D7 - output - timer LED (debug only)
 
 #include <stdio.h>                              // Note: big hit for using sprintf (1.5K)
@@ -36,7 +34,7 @@
 #define USART_BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
 #define ADC_ITERATIONS 5                        // number of ADC readings to average
 
-#define DEBUG_ENABLED (!(PIND & (1<<6)))
+#define DEBUG_ENABLED 0							// No debug enable jumper on current board
 
 volatile uint8_t  timer_tick, compute_and_send;
 volatile uint16_t counter;
@@ -52,13 +50,10 @@ void GetADCValue(uint16_t* battery)
 
     ADCSRA |= (1 << ADEN);                      // Enable the ADC
 
-    nop();                                      // Datasheet says to wait a mo before setting MUX
-                                                // is one cycle enough?
-
     for (adc_count = 0; adc_count < ADC_ITERATIONS; adc_count++)
     {
-        ADCSRA |= (1 << ADSC);                      // Start ADC conversion
-        while(ADCSRA & (1<<ADSC));                  // Wait for conversion to finish
+        ADCSRA |= (1 << ADSC);                  // Start ADC conversion
+        while(ADCSRA & (1<<ADSC));              // Wait for conversion to finish
 
         debug_adc_value[adc_count] = ADC;
         batteryADC += debug_adc_value[adc_count];
@@ -82,8 +77,10 @@ void ADCSetup(void)
 {
     ADMUX |= (1<<REFS0);                        // Use AVcc with external capacitor at AREF pin
 
-    ADMUX  |=  (1 << MUX1);                     // Set MUX1 & clear MUX0 to select channel 2 - battery voltage
-    ADMUX  &= ~(1 << MUX0);
+	ADMUX  &= ~(1 << MUX0);						// Clear MUX bits for channel 0 - battery voltage
+	ADMUX  &= ~(1 << MUX1);						//
+	ADMUX  &= ~(1 << MUX2);						//
+	ADMUX  &= ~(1 << MUX3);						//
 
     ADCSRA |= (1<<ADPS2);                       // ADC clock prescaler = F_CPU/16
                                                 // 7.3728 MHz/32 = 115kHz
@@ -280,10 +277,8 @@ void EnableRadio(int enable)
         // Power up the Xbee module
         PORTB &= ~(1 << 2);                     // De-assert port B2 to power radio on
         
-        // Wait for module to be ready, the manual specifies CTS rather than ON
-        //
-        //while(!(PINB & (1<<3)));              // Wait until port B3 (ON) goes high
-        while((PINB & (1<<4)));                 // Wait until port B4 (CTS) goes low
+        // Wait for module to be ready (CTS)
+        while((PINB & (1<<1)));                 // Wait until port B4 (CTS) goes low
     }
     else
     {
@@ -292,9 +287,39 @@ void EnableRadio(int enable)
     }
 }
 
+void PinConfig(void)
+{
+	// Set output pins
+    DDRB |= (1 << 2);                           // Set port B2 as output for radio sleep select
+    DDRD |= (1 << 6);                           // Set port D6 as output for debug LED
+    DDRD |= (1 << 7);                           // Set port D7 as output for debug LED
+
+    // Set initial output pin states
+    PORTB |= (1 << 2);                          // Assert port B2 to enable XBee sleep
+
+    // Enable pullup resistors for all unused pins
+    PORTB |= (1 << 0);                          // Enable pullup resistor on port B0
+    PORTB |= (1 << 1);                          // Enable pullup resistor on port B1
+    PORTB |= (1 << 3);                          // Enable pullup resistor on port B3
+    PORTB |= (1 << 4);                          // Enable pullup resistor on port B4
+    PORTB |= (1 << 5);                          // Enable pullup resistor on port B5
+
+    PORTC |= (1 << 1);                          // Enable pullup resistor on port C1
+    PORTC |= (1 << 2);                          // Enable pullup resistor on port C2
+    PORTC |= (1 << 3);                          // Enable pullup resistor on port C3
+    PORTC |= (1 << 4);                          // Enable pullup resistor on port C4
+    PORTC |= (1 << 5);                          // Enable pullup resistor on port C5
+    PORTC |= (1 << 6);                          // Enable pullup resistor on port C6
+    PORTC |= (1 << 7);                          // Enable pullup resistor on port C7
+
+    PORTD |= (1 << 3);                          // Enable pullup resistor on port D3
+    PORTD |= (1 << 4);                          // Enable pullup resistor on port D4
+    PORTD |= (1 << 5);                          // Enable pullup resistor on port D5
+}
+
 ISR(INT0_vect)
 {
-        PORTB ^= (1 << 0);                      // Toggle the debug LED on port B0
+        PORTD ^= (1 << 6);                      // Toggle the debug LED on port D6
         counter++;                              // increment our pulse counter
 }
 
@@ -319,32 +344,6 @@ int main (void)
     uint16_t total_count, hourly_rate, kWh;
     uint16_t batteryV;
     uint8_t  adc_count;
-    //
-    // PIN CONFIGURATION
-    //
-    DDRB |= (1 << 0);                           // Set port B0 as output for debug LED
-    DDRD |= (1 << 7);                           // Set port D7 as output for debug LED
-    DDRB |= (1 << 2);                           // Set port B2 as output for radio sleep select
-
-    PORTB |= (1 << 0);                          // Turn off the debug LED on port B0
-    PORTD |= (1 << 7);                          // Turn off the debug LED on port D7
-    PORTB |= (1 << 2);                          // Assert port B2 to enable xigbee sleep 
-
-    PORTD |= (1 << 6);                          // Enable pullup resistor on port D6 (debug output)
-
-    // Enable pullup resistors for all unused pins
-    PORTB |= (1 << 1);                          // Enable pullup resistor on port B1
-    PORTB |= (1 << 5);                          // Enable pullup resistor on port B5
-
-    PORTC |= (1 << 0);                          // Enable pullup resistor on port C0
-    PORTC |= (1 << 1);                          // Enable pullup resistor on port C1
-    PORTC |= (1 << 3);                          // Enable pullup resistor on port C3
-    PORTC |= (1 << 4);                          // Enable pullup resistor on port C4
-    PORTC |= (1 << 5);                          // Enable pullup resistor on port C5
-
-    PORTD |= (1 << 3);                          // Enable pullup resistor on port D3
-    PORTD |= (1 << 4);                          // Enable pullup resistor on port D4
-    PORTD |= (1 << 5);                          // Enable pullup resistor on port D5
 
     //
     // STK500 configuration - not required for standalone design
@@ -352,6 +351,7 @@ int main (void)
     PORTD |= (1 << 2);                          // Enable pullup resistor on port D2
     ASSR |= (1 << EXCLK);                       // Use external 32.768kHz clock instead of a crystal
 
+    PinSetup();
     ExternalIntSetup();
     USART_Setup();
     ADCSetup();
@@ -359,9 +359,8 @@ int main (void)
     // Initalise OSCCAL to centre point of it's range before intial calibration
     OSCCAL = (0x7F / 2);
 
-    // Calibrate the internal oscillator using thw 32.xxx KHz crystal
+    // Calibrate the internal oscillator using thw 32.768 KHz crystal
     OSCCAL_Calibrate();
-    PORTB |= (1 << 0);                          // Turn off the debug LED on port B0
 
     // Set up the timer for periodic wakeup
     TimerSetup();
