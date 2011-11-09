@@ -34,7 +34,7 @@
 #define USART_BAUD_PRESCALE (((F_CPU / (USART_BAUDRATE * 16UL))) - 1)
 #define ADC_ITERATIONS 5                        // number of ADC readings to average
 
-#define DEBUG_ENABLED 0							// No debug enable jumper on current board
+#define DEBUG_ENABLED (!(PIND & (1 << 3)))		// Use D3/INT1 for debug enable - jumper wire to ground pin
 
 volatile uint8_t  timer_tick, compute_and_send;
 volatile uint16_t counter;
@@ -312,7 +312,7 @@ void PinConfig(void)
     PORTC |= (1 << 6);                          // Enable pullup resistor on port C6
     PORTC |= (1 << 7);                          // Enable pullup resistor on port C7
 
-    PORTD |= (1 << 3);                          // Enable pullup resistor on port D3
+    PORTD |= (1 << 3);                          // Enable pullup resistor on port D3 ** Pulled down for debug enable
     PORTD |= (1 << 4);                          // Enable pullup resistor on port D4
     PORTD |= (1 << 5);                          // Enable pullup resistor on port D5
 }
