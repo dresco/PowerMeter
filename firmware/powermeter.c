@@ -351,7 +351,7 @@ int main (void)
     PORTD |= (1 << 2);                          // Enable pullup resistor on port D2
     ASSR |= (1 << EXCLK);                       // Use external 32.768kHz clock instead of a crystal
 
-    PinSetup();
+    PinConfig();
     ExternalIntSetup();
     USART_Setup();
     ADCSetup();
