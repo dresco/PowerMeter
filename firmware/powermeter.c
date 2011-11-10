@@ -64,13 +64,10 @@ void GetADCValue(uint16_t* battery)
 
     // 0 = 0v, 1023 = 3.0v ADC reference
     //
-    // Expecting battery voltage up to ~5v, so use 670k:470k voltage divider
+    // Expecting battery voltage up to ~5v, so use 680k:470k voltage divider
     //  giving us 0 = 0v, 1023 = 5.10v, therefore v = ADC / 200.4
-    //  -- real word testing gives us 202
-    //
-    // Format the strings as three digits including two decimal places..
 
-    *battery = (batteryADC * 100UL) / 202;
+    *battery = (batteryADC * 100UL) / 200;
 }
 
 void ADCSetup(void)
@@ -348,18 +345,18 @@ int main (void)
     //
     // STK500 configuration - not required for standalone design
     //
-    PORTD |= (1 << 2);                          // Enable pullup resistor on port D2
-    ASSR |= (1 << EXCLK);                       // Use external 32.768kHz clock instead of a crystal
+    // PORTD |= (1 << 2);                       // Enable pullup resistor on port D2
+    // ASSR |= (1 << EXCLK);                    // Use external 32.768kHz clock instead of a crystal
 
     PinConfig();
     ExternalIntSetup();
     USART_Setup();
     ADCSetup();
 
-    // Initalise OSCCAL to centre point of it's range before intial calibration
+    // Initialise OSCCAL to centre point of it's range before initial calibration
     OSCCAL = (0x7F / 2);
 
-    // Calibrate the internal oscillator using thw 32.768 KHz crystal
+    // Calibrate the internal oscillator using the 32.768 KHz crystal
     OSCCAL_Calibrate();
 
     // Set up the timer for periodic wakeup
@@ -405,9 +402,12 @@ int main (void)
             //
             EnableRadio(1);
 
-            // Get the battery voltage
-            // - do we need more of a delay to let reading stablise under load?
+            // Get the battery voltage (actually voltage after schotky diode)
+            // - do we need more of a delay to let reading stabilise under load?
             GetADCValue(&batteryV);
+
+            //
+            // Format the strings as three digits including two decimal places..
             UnsignedToDecimalString3(batteryV, str_batteryV);
 
             // Write the data to the serial port
