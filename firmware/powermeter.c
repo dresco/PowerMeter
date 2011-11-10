@@ -95,6 +95,23 @@ void ExternalIntSetup(void)
     EIMSK |= (1 << INT0);                       // Enable INT0 - Pin D2
 }
 
+void EnableRadio(int enable)
+{
+    if (enable)
+    {
+        // Power up the Xbee module
+        PORTB &= ~(1 << 2);                     // De-assert port B2 to power radio on
+
+        // Wait for module to be ready (CTS)
+        while((PINB & (1<<1)));                 // Wait until port B4 (CTS) goes low
+    }
+    else
+    {
+        // Power down the Xbee
+        PORTB |= (1 << 2);                      // Assert port B2 to power radio down
+    }
+}
+
 void USART_Setup(void)
 {
    UCSR0B |= (1 << TXEN0) | (1 << RXEN0);       // Turn on the transmit / receive circuitry
@@ -113,6 +130,9 @@ void USART_SendChar(char ByteToSend)
 
 void USART_SendString(char* StringPtr)
 {
+    // Enable the radio link
+    EnableRadio(1);
+
    while (*StringPtr)
    {
       USART_SendChar(*StringPtr);
@@ -125,6 +145,9 @@ void USART_SendString(char* StringPtr)
 
    // reset the transmit completion flag
    UCSR0A |= (1 << TXC0);
+
+   // Disable the radio link
+   EnableRadio(0);
 } 
 
 void TimerSetup(void)
@@ -271,23 +294,6 @@ void UnsignedToDecimalString5(uint16_t input, char * output_string)
     }
 }
 
-void EnableRadio(int enable)
-{
-    if (enable)
-    {
-        // Power up the Xbee module
-        PORTB &= ~(1 << 2);                     // De-assert port B2 to power radio on
-
-        // Wait for module to be ready (CTS)
-        while((PINB & (1<<1)));                 // Wait until port B4 (CTS) goes low
-    }
-    else
-    {
-        // Power down the Xbee
-        PORTB |= (1 << 2);                      // Assert port B2 to power radio down
-    }
-}
-
 void PinConfig(void)
 {
 	// Set output pins
@@ -394,22 +400,16 @@ int main (void)
             TimerSetup();
 
             // Calculate the hourly pulse rate, and convert into watt hours
-            // Then format the value as a kWh string, accurate to three decimal places
             hourly_rate = (total_count * (3600 / RADIO_INTERVAL));
             Wh = ((hourly_rate * 1000UL) / METER_PULSE_PER_KWH);
+
+            // Format the value as a kWh string, accurate to three decimal places
             UnsignedToDecimalString5(Wh, str_kWh);
 
-            // Enable the radio link
-            // - moved before ADC routine to get battery observations under load?
-            //
-            EnableRadio(1);
-
-            // Get the battery voltage (actually voltage after schottky diode)
-            // - do we need more of a delay to let reading stabilise under load?
+            // Get the battery voltage (actually voltage after schottky diode * 100)
             GetADCValue(&batteryV);
 
-            //
-            // Format the strings as three digits including two decimal places..
+            // Format the value as a voltage string, accurate to two decimal places..
             UnsignedToDecimalString3(batteryV, str_batteryV);
 
             // Write the data to the serial port
@@ -446,10 +446,6 @@ int main (void)
                 sprintf(Buffer, "Battery voltage: %sv\n", str_batteryV);
                 USART_SendString(Buffer);
             }
-
-            // Disable the radio link
-            //
-            EnableRadio(0);
         }
 
         // Sleeping too quickly after waking from aysnc clock causes issues, so re-write
