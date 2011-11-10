@@ -36,6 +36,10 @@
 
 #define DEBUG_ENABLED (!(PIND & (1 << 3)))		// Use D3/INT1 for debug enable - jumper wire to ground pin
 
+// The following values will need to be changed for different installations
+#define METER_NAME "PWR02"
+#define METER_PULSE_PER_KWH 800
+
 volatile uint8_t  timer_tick, compute_and_send;
 volatile uint16_t counter;
 
@@ -273,7 +277,7 @@ void EnableRadio(int enable)
     {
         // Power up the Xbee module
         PORTB &= ~(1 << 2);                     // De-assert port B2 to power radio on
-        
+
         // Wait for module to be ready (CTS)
         while((PINB & (1<<1)));                 // Wait until port B4 (CTS) goes low
     }
@@ -338,7 +342,7 @@ int main (void)
     char Buffer[64];
     char str_batteryV[5], str_kWh[7];
 
-    uint16_t total_count, hourly_rate, kWh;
+    uint16_t total_count, hourly_rate, Wh;
     uint16_t batteryV;
     uint8_t  adc_count;
 
@@ -381,28 +385,26 @@ int main (void)
             total_count = counter;
             counter = compute_and_send = 0;
 
-            // We get 800 pulses per kWh from the meter LED...
-            // So kWh = pulses per hour * 1.25
-            hourly_rate = (total_count * (3600 / RADIO_INTERVAL));
-            kWh = ((hourly_rate / 4) * 5);
-            UnsignedToDecimalString5(kWh, str_kWh);
-            
             // Calibrate the internal oscillator for reliable serial comms (resets timer 2)
             OSCCAL_Calibrate();
-
-            // PORTB ^= (1 << 0);                      // Toggle the debug LED on port B0
 
             // Restart timer2
             //  - Note: We lose a bit of time here with the recalibration, but have
             //    optimised the recalibration routine - so minimal impact
             TimerSetup();
 
+            // Calculate the hourly pulse rate, and convert into watt hours
+            // Then format the value as a kWh string, accurate to three decimal places
+            hourly_rate = (total_count * (3600 / RADIO_INTERVAL));
+            Wh = ((hourly_rate * 1000UL) / METER_PULSE_PER_KWH);
+            UnsignedToDecimalString5(Wh, str_kWh);
+
             // Enable the radio link
             // - moved before ADC routine to get battery observations under load?
             //
             EnableRadio(1);
 
-            // Get the battery voltage (actually voltage after schotky diode)
+            // Get the battery voltage (actually voltage after schottky diode)
             // - do we need more of a delay to let reading stabilise under load?
             GetADCValue(&batteryV);
 
@@ -417,7 +419,7 @@ int main (void)
                 //
                 // Normal output
                 //
-                sprintf(Buffer, "PWR01,%s,%s,%i\n", str_kWh, str_batteryV, OSCCAL);
+                sprintf(Buffer, "%s,%s,%s,%i\n", METER_NAME, str_kWh, str_batteryV, OSCCAL);
                 USART_SendString(Buffer);
             }
             else
