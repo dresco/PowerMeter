@@ -21,11 +21,11 @@
 #include <util/delay.h>
 #include "osccal.h"
 
-#define SETBIT(ADDRESS,BIT) (ADDRESS |= (1<<BIT))
-#define CLEARBIT(ADDRESS,BIT) (ADDRESS &= ~(1<<BIT))
-#define FLIPBIT(ADDRESS,BIT) (ADDRESS ^= (1<<BIT))
-#define CHECKBIT(ADDRESS,BIT) (ADDRESS & (1<<BIT)) 
-#define nop() asm volatile("nop")
+//#define SETBIT(ADDRESS,BIT) (ADDRESS |= (1<<BIT))
+//#define CLEARBIT(ADDRESS,BIT) (ADDRESS &= ~(1<<BIT))
+//#define FLIPBIT(ADDRESS,BIT) (ADDRESS ^= (1<<BIT))
+//#define CHECKBIT(ADDRESS,BIT) (ADDRESS & (1<<BIT))
+//#define nop() asm volatile("nop")
 
 #define TICK_INTERVAL 5                         // timer 2 fires every 5 seconds
 #define RADIO_INTERVAL 300                      // send stats every 300 seconds (5 mins)
@@ -37,8 +37,10 @@
 #define DEBUG_ENABLED (!(PIND & (1 << 3)))		// Use D3/INT1 for debug enable - jumper wire to ground pin
 
 // The following values will need to be changed for different installations
+//  - PWR01, 800 impulses per kWh
+//  - PWR02, 1000 impulses per kWh
 #define METER_NAME "PWR02"
-#define METER_PULSE_PER_KWH 800
+#define METER_PULSE_PER_KWH 1000
 
 volatile uint8_t  timer_tick, compute_and_send;
 volatile uint16_t counter;
@@ -371,6 +373,12 @@ int main (void)
 
     // Set up the timer for periodic wakeup
     TimerSetup();
+
+	if (DEBUG_ENABLED)
+	{
+		sprintf(Buffer, "Starting....\n");
+		USART_SendString(Buffer);
+	}
 
     sei();                                      // Enable global interrupts
 
